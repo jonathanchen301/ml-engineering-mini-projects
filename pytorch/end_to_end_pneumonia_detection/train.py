@@ -19,7 +19,7 @@ def parse_args():
     )
 
     parser.add_argument("--epochs", type=int, default=20, help="Number of epochs to train")
-    parser.add_argument("--batch-size", type=int, default=64, help="Mini-batch size for training")
+    parser.add_argument("--batch_size", type=int, default=64, help="Mini-batch size for training")
     parser.add_argument("--lr", type=float, default=0.001, help="Learning rate for training")
     parser.add_argument("--data_dir", type=str, default="./data/chest_xray", help="Path to the dataset (Please download as described in README.md)")
     parser.add_argument("--output_dir", type=str, default="./checkpoints", help="Path to save checkpoints and final models")
@@ -120,27 +120,27 @@ if __name__ == "__main__":
 
     print(f"Best Val Loss: {best_val_loss:.4f}")
 
-# Plotting the training and validation curves
-plt.figure(figsize=(10, 5))
+    # Plotting the training and validation curves
+    plt.figure(figsize=(10, 5))
 
-plt.plot(metrics["train_loss"], label="Training Loss")
-plt.plot(metrics["val_loss"], label="Validation Loss")
-plt.xlabel("Epoch")
-plt.ylabel("Loss")
-plt.title(f"Loss Curves - {args.model}")
-plt.legend()
-plt.grid(True, alpha=0.3)
-plt.savefig(f"{args.plot_dir}/loss_curves_{args.model}.png")
-plt.close()
+    plt.plot(metrics["train_loss"], label="Training Loss")
+    plt.plot(metrics["val_loss"], label="Validation Loss")
+    plt.xlabel("Epoch")
+    plt.ylabel("Loss")
+    plt.title(f"Loss Curves - {args.model}")
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    plt.savefig(f"{args.plot_dir}/loss_curves_{args.model}.png")
+    plt.close()
 
-# Plotting the accuracy curves
-plt.figure(figsize=(10, 5))
-plt.plot(metrics["val_acc"], label="Validation Accuracy")
-plt.xlabel("Epoch")
-plt.ylabel("Accuracy")
-plt.title(f"Accuracy Curves - {args.model}")
-plt.legend()
-plt.grid(True, alpha=0.3)
-plt.ylim(0, 1)
-plt.savefig(f"{args.plot_dir}/accuracy_curves_{args.model}.png")
-plt.close()
+    # Plotting the accuracy curves
+    plt.figure(figsize=(10, 5))
+    plt.plot(metrics["val_acc"], label="Validation Accuracy")
+    plt.xlabel("Epoch")
+    plt.ylabel("Accuracy")
+    plt.title(f"Accuracy Curves - {args.model}")
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    plt.ylim(0, 1)
+    plt.savefig(f"{args.plot_dir}/accuracy_curves_{args.model}.png")
+    plt.close()
