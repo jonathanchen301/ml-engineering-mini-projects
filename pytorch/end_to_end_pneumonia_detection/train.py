@@ -50,7 +50,7 @@ if __name__ == "__main__":
     elif args.model == "resnet_baseline":
         model = create_resnet_finetune(weights=None)
     else:
-        model = create_resnet_finetune(weights="IMAGENET1K_V1")
+        model = create_resnet_finetune(weights="IMAGENET1K_V1", feature_extraction=True)
 
     model.to(device)
     criterion = nn.CrossEntropyLoss()
